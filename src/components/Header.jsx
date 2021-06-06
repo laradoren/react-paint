@@ -1,0 +1,27 @@
+import React from 'react';
+import users from './../assets/images/group.svg';
+import undo from './../assets/images/left.svg';
+import redo from './../assets/images/right.svg';
+import save from './../assets/images/diskette.svg';
+import './../styles/header.scss';
+
+const Header = () => {
+    return (
+        <div className="header">
+            <div className="header__inner">
+                <div className="header__text">Paint</div>
+                <div className="header__middle">
+                    <img src={users} className="header__icon"/>
+                    <div className="header__text">No name</div>
+                </div>
+                <div className="header__right">
+                    <img src={undo} className="header__icon"/>
+                    <img src={redo} className="header__icon"/>
+                    <img src={save} className="header__icon"/>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Header;
