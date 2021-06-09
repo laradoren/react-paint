@@ -5,17 +5,33 @@ import circle from './../assets/images/dry-clean.svg'
 import eraser from './../assets/images/eraser.svg';
 import line from './../assets/images/diagonal-line.svg';
 import  './../styles/toolbar.scss';
+import toolState from "../store/toolState";
+import Brush from "../tools/Brush";
+import canvasState from "../store/canvasState";
+import Square from "../tools/Square";
+import Circle from "../tools/Circle";
+import Eraser from "../tools/Eraser";
+import Line from "../tools/Line";
 
 const Toolbar = () => {
+
+    const changeColor = (e) => {
+        toolState.setStrokeColor(e.target.value);
+        toolState.setFillColor(e.target.value);
+    }
+
     return (
         <div className="toolbar">
             <div className="toolbar__inner">
-                <img src={brush} className="toolbar__icon"/>
-                <img src={square} className="toolbar__icon"/>
-                <img src={circle} className="toolbar__icon"/>
-                <img src={eraser} className="toolbar__icon"/>
-                <img src={line} className="toolbar__icon"/>
-                <input type="color"/>
+                <img src={brush} alt="icon" className="toolbar__icon"  onClick={() => toolState.setTool(new Brush(canvasState.canvas))}/>
+                <img src={square} alt="icon" className="toolbar__icon" onClick={() => toolState.setTool(new Square(canvasState.canvas))}/>
+                <img src={circle} alt="icon" className="toolbar__icon" onClick={() => toolState.setTool(new Circle(canvasState.canvas))}/>
+                <img src={line} alt="icon" className="toolbar__icon" onClick = {() => toolState.setTool(new Line(canvasState.canvas))}/>
+                <img src={eraser} alt="icon" className="toolbar__icon" onClick = {() => toolState.setTool(new Eraser(canvasState.canvas))}/>
+                <div className="toolbar__input-range">
+                    <input type="range" min="0" max="20" step="1" defaultValue="1" onChange={ e => toolState.setLineWidth(e.target.value) } />
+                </div>
+                <input type="color" defaultValue="black" onChange={ e => changeColor(e)} />
             </div>
         </div>
     );

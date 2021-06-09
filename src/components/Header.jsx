@@ -11,13 +11,13 @@ const Header = () => {
             <div className="header__inner">
                 <div className="header__text">Paint</div>
                 <div className="header__middle">
-                    <img src={users} className="header__icon"/>
+                    <img src={users} alt="icon" className="header__icon"/>
                     <div className="header__text">No name</div>
                 </div>
                 <div className="header__right">
-                    <img src={undo} className="header__icon"/>
-                    <img src={redo} className="header__icon"/>
-                    <img src={save} className="header__icon"/>
+                    <img src={undo} alt="icon" className="header__icon"/>
+                    <img src={redo} alt="icon" className="header__icon"/>
+                    <img src={save} alt="icon" className="header__icon"/>
                 </div>
             </div>
         </div>
