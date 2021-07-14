@@ -1,0 +1,12 @@
+.canvas {
+  width: calc(100vw - 70px);
+  height: 100%;
+}
+
+canvas {
+  position: fixed;
+}
+
+input[type="text"] {
+  width: 100%;
+}
